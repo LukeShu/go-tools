@@ -6,7 +6,7 @@ import (
 
 	"honnef.co/go/tools/callgraph"
 	"honnef.co/go/tools/lint"
-	"honnef.co/go/tools/ssa"
+	"golang.org/x/tools/go/ssa"
 )
 
 // IsStub reports whether a function is a stub. A function is

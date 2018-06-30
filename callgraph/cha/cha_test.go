@@ -23,7 +23,7 @@ import (
 	"honnef.co/go/tools/callgraph"
 	"honnef.co/go/tools/callgraph/cha"
 	"golang.org/x/tools/go/loader"
-	"honnef.co/go/tools/ssa/ssautil"
+	"golang.org/x/tools/go/ssa/ssautil"
 )
 
 var inputs = []string{

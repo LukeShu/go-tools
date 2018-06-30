@@ -5,7 +5,7 @@ import (
 
 	"honnef.co/go/tools/functions"
 	"honnef.co/go/tools/lint"
-	"honnef.co/go/tools/ssa"
+	"golang.org/x/tools/go/ssa"
 )
 
 type Checker struct {

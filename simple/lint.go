@@ -11,7 +11,7 @@ import (
 
 	"honnef.co/go/tools/internal/sharedcheck"
 	"honnef.co/go/tools/lint"
-	"honnef.co/go/tools/ssa"
+	"golang.org/x/tools/go/ssa"
 
 	"golang.org/x/tools/go/types/typeutil"
 )

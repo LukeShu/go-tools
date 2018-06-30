@@ -20,7 +20,7 @@ import (
 	"honnef.co/go/tools/functions"
 	"honnef.co/go/tools/internal/sharedcheck"
 	"honnef.co/go/tools/lint"
-	"honnef.co/go/tools/ssa"
+	"golang.org/x/tools/go/ssa"
 	"honnef.co/go/tools/staticcheck/vrp"
 
 	"golang.org/x/tools/go/ast/astutil"

@@ -51,7 +51,7 @@ import (
 	"go/types"
 
 	"honnef.co/go/tools/callgraph"
-	"honnef.co/go/tools/ssa"
+	"golang.org/x/tools/go/ssa"
 	"golang.org/x/tools/go/types/typeutil"
 )
 

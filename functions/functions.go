@@ -6,7 +6,7 @@ import (
 
 	"honnef.co/go/tools/callgraph"
 	"honnef.co/go/tools/callgraph/static"
-	"honnef.co/go/tools/ssa"
+	"golang.org/x/tools/go/ssa"
 	"honnef.co/go/tools/staticcheck/vrp"
 )
 

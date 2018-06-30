@@ -21,7 +21,7 @@ import (
 	"strings"
 
 	"honnef.co/go/tools/lint"
-	"honnef.co/go/tools/ssa"
+	"golang.org/x/tools/go/ssa"
 	"honnef.co/go/tools/version"
 
 	"golang.org/x/tools/go/loader"
