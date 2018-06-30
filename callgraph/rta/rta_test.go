@@ -20,8 +20,8 @@ import (
 	"strings"
 	"testing"
 
-	"honnef.co/go/tools/callgraph"
-	"honnef.co/go/tools/callgraph/rta"
+	"golang.org/x/tools/go/callgraph"
+	"golang.org/x/tools/go/callgraph/rta"
 	"golang.org/x/tools/go/loader"
 	"golang.org/x/tools/go/ssa"
 	"golang.org/x/tools/go/ssa/ssautil"

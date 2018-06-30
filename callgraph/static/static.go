@@ -1,9 +1,9 @@
 // Package static computes the call graph of a Go program containing
 // only static call edges.
-package static // import "honnef.co/go/tools/callgraph/static"
+package static // import "golang.org/x/tools/go/callgraph/static"
 
 import (
-	"honnef.co/go/tools/callgraph"
+	"golang.org/x/tools/go/callgraph"
 	"golang.org/x/tools/go/ssa"
 	"golang.org/x/tools/go/ssa/ssautil"
 )
