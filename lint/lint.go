@@ -235,9 +235,7 @@ func parseDirective(s string) (cmd string, args []string) {
 	return fields[0], fields[1:]
 }
 
-func (l *Linter) Lint(lprog *loader.Program, conf *loader.Config) []Problem {
-	ssaprog := ssautil.CreateProgram(lprog, ssa.GlobalDebug)
-	ssaprog.Build()
+func (l *Linter) Lint(lprog *loader.Program, ssaprog *ssa.Program, conf *loader.Config) []Problem {
 	pkgMap := map[*ssa.Package]*Pkg{}
 	var pkgs []*Pkg
 	for _, pkginfo := range lprog.InitialPackages() {

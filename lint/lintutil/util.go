@@ -13,9 +13,7 @@ import (
 	"flag"
 	"fmt"
 	"go/build"
-	"go/parser"
 	"go/token"
-	"go/types"
 	"io"
 	"os"
 	"path/filepath"
@@ -23,9 +21,9 @@ import (
 	"strings"
 
 	"honnef.co/go/tools/lint"
+	"honnef.co/go/tools/ssa"
 	"honnef.co/go/tools/version"
 
-	"github.com/kisielk/gotool"
 	"golang.org/x/tools/go/loader"
 )
 
@@ -185,12 +183,11 @@ type CheckerConfig struct {
 	ExitNonZero bool
 }
 
-func ProcessFlagSet(confs []CheckerConfig, fs *flag.FlagSet) {
+func ProcessFlagSet(confs []CheckerConfig, fs *flag.FlagSet, lprog *loader.Program, ssaProg *ssa.Program, conf *loader.Config) []lint.Problem {
 	tags := fs.Lookup("tags").Value.(flag.Getter).Get().(string)
 	ignore := fs.Lookup("ignore").Value.(flag.Getter).Get().(string)
 	tests := fs.Lookup("tests").Value.(flag.Getter).Get().(bool)
 	goVersion := fs.Lookup("go").Value.(flag.Getter).Get().(int)
-	format := fs.Lookup("f").Value.(flag.Getter).Get().(string)
 	printVersion := fs.Lookup("version").Value.(flag.Getter).Get().(bool)
 	showIgnored := fs.Lookup("show-ignored").Value.(flag.Getter).Get().(bool)
 
@@ -203,7 +200,7 @@ func ProcessFlagSet(confs []CheckerConfig, fs *flag.FlagSet) {
 	for _, conf := range confs {
 		cs = append(cs, conf.Checker)
 	}
-	pss, err := Lint(cs, fs.Args(), &Options{
+	pss, err := Lint(cs, lprog, ssaProg, conf, &Options{
 		Tags:          strings.Fields(tags),
 		LintTests:     tests,
 		Ignores:       ignore,
@@ -211,8 +208,7 @@ func ProcessFlagSet(confs []CheckerConfig, fs *flag.FlagSet) {
 		ReturnIgnored: showIgnored,
 	})
 	if err != nil {
-		fmt.Fprintln(os.Stderr, err)
-		os.Exit(1)
+		panic(err)
 	}
 
 	var ps []lint.Problem
@@ -220,25 +216,7 @@ func ProcessFlagSet(confs []CheckerConfig, fs *flag.FlagSet) {
 		ps = append(ps, p...)
 	}
 
-	var f OutputFormatter
-	switch format {
-	case "text":
-		f = TextOutput{os.Stdout}
-	case "json":
-		f = JSONOutput{os.Stdout}
-	default:
-		fmt.Fprintf(os.Stderr, "unsupported output format %q\n", format)
-		os.Exit(2)
-	}
-
-	for _, p := range ps {
-		f.Format(p)
-	}
-	for i, p := range pss {
-		if len(p) != 0 && confs[i].ExitNonZero {
-			os.Exit(1)
-		}
-	}
+	return ps
 }
 
 type Options struct {
@@ -249,45 +227,11 @@ type Options struct {
 	ReturnIgnored bool
 }
 
-func Lint(cs []lint.Checker, pkgs []string, opt *Options) ([][]lint.Problem, error) {
+func Lint(cs []lint.Checker, lprog *loader.Program, ssaProg *ssa.Program, conf *loader.Config, opt *Options) ([][]lint.Problem, error) {
 	if opt == nil {
 		opt = &Options{}
 	}
 	ignores, err := parseIgnore(opt.Ignores)
-	if err != nil {
-		return nil, err
-	}
-	paths := gotool.ImportPaths(pkgs)
-	goFiles, err := resolveRelative(paths, opt.Tags)
-	if err != nil {
-		return nil, err
-	}
-	ctx := build.Default
-	ctx.BuildTags = opt.Tags
-	hadError := false
-	conf := &loader.Config{
-		Build:      &ctx,
-		ParserMode: parser.ParseComments,
-		ImportPkgs: map[string]bool{},
-		TypeChecker: types.Config{
-			Error: func(err error) {
-				// Only print the first error found
-				if hadError {
-					return
-				}
-				hadError = true
-				fmt.Fprintln(os.Stderr, err)
-			},
-		},
-	}
-	if goFiles {
-		conf.CreateFromFilenames("adhoc", paths...)
-	} else {
-		for _, path := range paths {
-			conf.ImportPkgs[path] = opt.LintTests
-		}
-	}
-	lprog, err := conf.Load()
 	if err != nil {
 		return nil, err
 	}
@@ -301,7 +245,7 @@ func Lint(cs []lint.Checker, pkgs []string, opt *Options) ([][]lint.Problem, err
 			version:       opt.GoVersion,
 			returnIgnored: opt.ReturnIgnored,
 		}
-		problems = append(problems, runner.lint(lprog, conf))
+		problems = append(problems, runner.lint(lprog, ssaProg, conf))
 	}
 	return problems, nil
 }
@@ -335,15 +279,15 @@ func ProcessArgs(name string, cs []CheckerConfig, args []string) {
 	flags := FlagSet(name)
 	flags.Parse(args)
 
-	ProcessFlagSet(cs, flags)
+	ProcessFlagSet(cs, flags, nil, nil, nil)
 }
 
-func (runner *runner) lint(lprog *loader.Program, conf *loader.Config) []lint.Problem {
+func (runner *runner) lint(lprog *loader.Program, ssaProg *ssa.Program, conf *loader.Config) []lint.Problem {
 	l := &lint.Linter{
 		Checker:       runner.checker,
 		Ignores:       runner.ignores,
 		GoVersion:     runner.version,
 		ReturnIgnored: runner.returnIgnored,
 	}
-	return l.Lint(lprog, conf)
+	return l.Lint(lprog, ssaProg, conf)
 }
