@@ -4,7 +4,7 @@ import (
 	"go/ast"
 	"go/types"
 
-	"honnef.co/go/tools/lint"
+	"github.com/golangci/go-tools/lint"
 	"github.com/golangci/tools/go/ssa"
 )
 

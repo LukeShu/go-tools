@@ -1,13 +1,13 @@
 // megacheck runs staticcheck, gosimple and unused.
-package main // import "honnef.co/go/tools/cmd/megacheck"
+package main // import "github.com/golangci/go-tools/cmd/megacheck"
 
 import (
 	"os"
 
-	"honnef.co/go/tools/lint/lintutil"
-	"honnef.co/go/tools/simple"
-	"honnef.co/go/tools/staticcheck"
-	"honnef.co/go/tools/unused"
+	"github.com/golangci/go-tools/lint/lintutil"
+	"github.com/golangci/go-tools/simple"
+	"github.com/golangci/go-tools/staticcheck"
+	"github.com/golangci/go-tools/unused"
 )
 
 func main() {

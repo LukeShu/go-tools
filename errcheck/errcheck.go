@@ -3,8 +3,8 @@ package errcheck
 import (
 	"go/types"
 
-	"honnef.co/go/tools/functions"
-	"honnef.co/go/tools/lint"
+	"github.com/golangci/go-tools/functions"
+	"github.com/golangci/go-tools/lint"
 	"github.com/golangci/tools/go/ssa"
 )
 
