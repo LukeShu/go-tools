@@ -1,6 +1,6 @@
 package functions
 
-import "golang.org/x/tools/go/ssa"
+import "github.com/golangci/tools/go/ssa"
 
 type Loop map[*ssa.BasicBlock]bool
 

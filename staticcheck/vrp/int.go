@@ -6,7 +6,7 @@ import (
 	"go/types"
 	"math/big"
 
-	"golang.org/x/tools/go/ssa"
+	"github.com/golangci/tools/go/ssa"
 )
 
 type Zs []Z

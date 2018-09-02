@@ -4,8 +4,8 @@ import (
 	"go/token"
 	"go/types"
 
-	"golang.org/x/tools/go/callgraph"
-	"golang.org/x/tools/go/ssa"
+	"github.com/golangci/tools/go/callgraph"
+	"github.com/golangci/tools/go/ssa"
 	"honnef.co/go/tools/lint"
 )
 

@@ -4,9 +4,9 @@ import (
 	"go/types"
 	"sync"
 
-	"golang.org/x/tools/go/callgraph"
-	"golang.org/x/tools/go/callgraph/static"
-	"golang.org/x/tools/go/ssa"
+	"github.com/golangci/tools/go/callgraph"
+	"github.com/golangci/tools/go/callgraph/static"
+	"github.com/golangci/tools/go/ssa"
 	"honnef.co/go/tools/staticcheck/vrp"
 )
 

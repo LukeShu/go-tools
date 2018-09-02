@@ -14,7 +14,7 @@ import (
 	"unicode/utf8"
 
 	"honnef.co/go/tools/lint"
-	"golang.org/x/tools/go/ssa"
+	"github.com/golangci/tools/go/ssa"
 	"honnef.co/go/tools/staticcheck/vrp"
 )
 

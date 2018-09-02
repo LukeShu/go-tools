@@ -5,7 +5,7 @@ import (
 	"go/types"
 
 	"honnef.co/go/tools/lint"
-	"golang.org/x/tools/go/ssa"
+	"github.com/golangci/tools/go/ssa"
 )
 
 func CheckRangeStringRunes(nodeFns map[ast.Node]*ssa.Function, j *lint.Job) {
