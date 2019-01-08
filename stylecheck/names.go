@@ -9,8 +9,8 @@ import (
 	"strings"
 	"unicode"
 
-	"honnef.co/go/tools/lint"
-	. "honnef.co/go/tools/lint/lintdsl"
+	"github.com/golangci/go-tools/lint"
+	. "github.com/golangci/go-tools/lint/lintdsl"
 )
 
 // knownNameExceptions is a set of names that are known to be exempt from naming checks.

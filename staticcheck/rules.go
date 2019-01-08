@@ -13,10 +13,10 @@ import (
 	"time"
 	"unicode/utf8"
 
-	"honnef.co/go/tools/lint"
-	. "honnef.co/go/tools/lint/lintdsl"
-	"honnef.co/go/tools/ssa"
-	"honnef.co/go/tools/staticcheck/vrp"
+	"github.com/golangci/go-tools/lint"
+	. "github.com/golangci/go-tools/lint/lintdsl"
+	"github.com/golangci/go-tools/ssa"
+	"github.com/golangci/go-tools/staticcheck/vrp"
 )
 
 const (

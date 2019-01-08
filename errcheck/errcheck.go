@@ -3,10 +3,10 @@ package errcheck
 import (
 	"go/types"
 
-	"honnef.co/go/tools/functions"
-	"honnef.co/go/tools/lint"
-	. "honnef.co/go/tools/lint/lintdsl"
-	"honnef.co/go/tools/ssa"
+	"github.com/golangci/go-tools/functions"
+	"github.com/golangci/go-tools/lint"
+	. "github.com/golangci/go-tools/lint/lintdsl"
+	"github.com/golangci/go-tools/ssa"
 )
 
 type Checker struct {

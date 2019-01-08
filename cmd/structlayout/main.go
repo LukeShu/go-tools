@@ -10,9 +10,9 @@ import (
 	"log"
 	"os"
 
-	"honnef.co/go/tools/gcsizes"
-	st "honnef.co/go/tools/structlayout"
-	"honnef.co/go/tools/version"
+	"github.com/golangci/go-tools/gcsizes"
+	st "github.com/golangci/go-tools/structlayout"
+	"github.com/golangci/go-tools/version"
 
 	"golang.org/x/tools/go/loader"
 )

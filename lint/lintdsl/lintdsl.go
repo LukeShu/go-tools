@@ -12,8 +12,8 @@ import (
 	"go/types"
 	"strings"
 
-	"honnef.co/go/tools/lint"
-	"honnef.co/go/tools/ssa"
+	"github.com/golangci/go-tools/lint"
+	"github.com/golangci/go-tools/ssa"
 )
 
 type packager interface {
