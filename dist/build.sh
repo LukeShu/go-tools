@@ -23,7 +23,7 @@ for os in ${SYSTEMS[@]}; do
         if [ $os = "windows" ]; then
             out="${out}.exe"
         fi
-        CGO_ENABLED=0 GOOS=$os GOARCH=$arch go build -o "${rev}/${out}" honnef.co/go/tools/cmd/staticcheck
+        CGO_ENABLED=0 GOOS=$os GOARCH=$arch go build -o "${rev}/${out}" github.com/golangci/go-tools/cmd/staticcheck
         (
             cd "$rev"
             sha256sum "$out" > "$out".sha256

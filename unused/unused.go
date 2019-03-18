@@ -1,4 +1,4 @@
-package unused // import "honnef.co/go/tools/unused"
+package unused // import "github.com/golangci/go-tools/unused"
 
 import (
 	"fmt"
@@ -9,8 +9,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"honnef.co/go/tools/lint"
-	. "honnef.co/go/tools/lint/lintdsl"
+	"github.com/golangci/go-tools/lint"
+	. "github.com/golangci/go-tools/lint/lintdsl"
 
 	"golang.org/x/tools/go/packages"
 	"golang.org/x/tools/go/types/typeutil"

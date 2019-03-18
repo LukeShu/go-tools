@@ -20,11 +20,11 @@ import (
 	"strings"
 	"testing"
 
-	"honnef.co/go/tools/callgraph"
-	"honnef.co/go/tools/callgraph/rta"
+	"github.com/golangci/go-tools/callgraph"
+	"github.com/golangci/go-tools/callgraph/rta"
 	"golang.org/x/tools/go/loader"
-	"honnef.co/go/tools/ssa"
-	"honnef.co/go/tools/ssa/ssautil"
+	"github.com/golangci/go-tools/ssa"
+	"github.com/golangci/go-tools/ssa/ssautil"
 )
 
 var inputs = []string{
