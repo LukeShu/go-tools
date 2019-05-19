@@ -21,14 +21,14 @@
 // and all concrete types are put into interfaces, it is sound to run on
 // partial programs, such as libraries without a main or test function.
 //
-package cha // import "github.com/golangci/go-tools/callgraph/cha"
+package cha // import "honnef.co/go/tools/callgraph/cha"
 
 import (
 	"go/types"
 
-	"github.com/golangci/go-tools/callgraph"
-	"github.com/golangci/go-tools/ssa"
-	"github.com/golangci/go-tools/ssa/ssautil"
+	"honnef.co/go/tools/callgraph"
+	"honnef.co/go/tools/ssa"
+	"honnef.co/go/tools/ssa/ssautil"
 	"golang.org/x/tools/go/types/typeutil"
 )
 

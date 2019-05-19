@@ -1,6 +1,6 @@
-# github.com/golangci/go-tools
+# honnef.co/go/tools
 
-`github.com/golangci/go-tools/...` is a collection of tools and libraries for
+`honnef.co/go/tools/...` is a collection of tools and libraries for
 working with Go code, including linters and static analysis.
 
 **These tools are supported by
@@ -13,7 +13,7 @@ consider purchasing
 
 To install or update all tools run
 ```
-go get -u github.com/golangci/go-tools/...
+go get -u honnef.co/go/tools/...
 ```
 
 Alternatively, see individual tool pages below.

@@ -1,4 +1,4 @@
-package stylecheck // import "github.com/golangci/go-tools/stylecheck"
+package stylecheck // import "honnef.co/go/tools/stylecheck"
 
 import (
 	"fmt"
@@ -11,9 +11,9 @@ import (
 	"unicode"
 	"unicode/utf8"
 
-	"github.com/golangci/go-tools/lint"
-	. "github.com/golangci/go-tools/lint/lintdsl"
-	"github.com/golangci/go-tools/ssa"
+	"honnef.co/go/tools/lint"
+	. "honnef.co/go/tools/lint/lintdsl"
+	"honnef.co/go/tools/ssa"
 
 	"golang.org/x/tools/go/types/typeutil"
 )

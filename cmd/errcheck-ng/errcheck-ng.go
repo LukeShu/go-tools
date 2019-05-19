@@ -1,11 +1,11 @@
-package main // import "github.com/golangci/go-tools/cmd/errcheck-ng"
+package main // import "honnef.co/go/tools/cmd/errcheck-ng"
 
 import (
 	"os"
 
-	"github.com/golangci/go-tools/errcheck"
-	"github.com/golangci/go-tools/lint"
-	"github.com/golangci/go-tools/lint/lintutil"
+	"honnef.co/go/tools/errcheck"
+	"honnef.co/go/tools/lint"
+	"honnef.co/go/tools/lint/lintutil"
 )
 
 func main() {

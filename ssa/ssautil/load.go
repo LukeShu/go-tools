@@ -13,7 +13,7 @@ import (
 
 	"golang.org/x/tools/go/loader"
 	"golang.org/x/tools/go/packages"
-	"github.com/golangci/go-tools/ssa"
+	"honnef.co/go/tools/ssa"
 )
 
 // Packages creates an SSA program for a set of packages loaded from

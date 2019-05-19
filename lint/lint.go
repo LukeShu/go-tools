@@ -1,5 +1,5 @@
 // Package lint provides the foundation for tools like staticcheck
-package lint // import "github.com/golangci/go-tools/lint"
+package lint // import "honnef.co/go/tools/lint"
 
 import (
 	"fmt"
@@ -16,10 +16,10 @@ import (
 	"time"
 	"unicode"
 
-	"github.com/golangci/go-tools/config"
-	"github.com/golangci/go-tools/ssa"
-	"github.com/golangci/go-tools/ssa/ssautil"
 	"golang.org/x/tools/go/packages"
+	"honnef.co/go/tools/config"
+	"honnef.co/go/tools/ssa"
+	"honnef.co/go/tools/ssa/ssautil"
 )
 
 type Job struct {

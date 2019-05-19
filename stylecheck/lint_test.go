@@ -3,7 +3,7 @@ package stylecheck
 import (
 	"testing"
 
-	"github.com/golangci/go-tools/lint/testutil"
+	"honnef.co/go/tools/lint/testutil"
 )
 
 func TestAll(t *testing.T) {

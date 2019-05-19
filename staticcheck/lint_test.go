@@ -3,9 +3,9 @@ package staticcheck
 import (
 	"testing"
 
-	"github.com/golangci/go-tools/lint"
-	"github.com/golangci/go-tools/lint/lintutil"
-	"github.com/golangci/go-tools/lint/testutil"
+	"honnef.co/go/tools/lint"
+	"honnef.co/go/tools/lint/lintutil"
+	"honnef.co/go/tools/lint/testutil"
 )
 
 func TestAll(t *testing.T) {

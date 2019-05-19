@@ -5,7 +5,7 @@
 // https://developers.google.com/open-source/licenses/bsd.
 
 // Package testutil provides helpers for testing staticcheck.
-package testutil // import "github.com/golangci/go-tools/lint/testutil"
+package testutil // import "honnef.co/go/tools/lint/testutil"
 
 import (
 	"fmt"
@@ -21,8 +21,8 @@ import (
 	"testing"
 
 	"golang.org/x/tools/go/packages"
-	"github.com/golangci/go-tools/config"
-	"github.com/golangci/go-tools/lint"
+	"honnef.co/go/tools/config"
+	"honnef.co/go/tools/lint"
 )
 
 func TestAll(t *testing.T, c lint.Checker, dir string) {
